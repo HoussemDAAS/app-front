@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlatsComponent } from './plats/plats.component';
 import { AddPlatComponent } from './add-plat/add-plat.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdatePlatComponent } from './update-plat/update-plat.component';
 import { RechercheParMenuComponent } from './recherche-par-menu/recherche-par-menu.component';
@@ -15,6 +15,10 @@ import { UpdateMenuComponent } from './update-menu/update-menu.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { TokenInterceptor } from './services/token.interceptor';
+import { RegisterComponent } from './register/register.component';
+import { VerifEmailComponent } from './verif-email/verif-email.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,13 +32,20 @@ import { TokenInterceptor } from './services/token.interceptor';
     ListeMenuComponent,
     UpdateMenuComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    RegisterComponent,
+    VerifEmailComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+ToastrModule.forRoot(),
   ],
   providers: [{ provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptor,

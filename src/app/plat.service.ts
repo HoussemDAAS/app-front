@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { menuWrapper } from './model/menuWrapped.model';
 import { AuthService } from './services/auth.service';
+import { User } from './model/User.model';
 
 const httpOptions = {headers: new HttpHeaders( {'Content-Type': 'application/json'} )
 };
@@ -131,5 +132,5 @@ uploadImagePlat(file: File, filename: string, idPlat:number): Observable<any>{
     const url = `${this.apiURL}/image/delete/${id}`;
     return this.http.delete(url, httpOptions);
     }
-
+ 
 }

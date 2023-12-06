@@ -16,7 +16,7 @@ export class AuthService {
   // { "username": "houssem", "password": "123", "roles": ['USER'] }];
   private helper = new JwtHelperService();
   constructor(private router: Router, private http: HttpClient) { }
-
+public regitredUser : User = new User();
   login(user: User) {
     return this.http.post<User>(this.apiURL + '/login', user, { observe: 'response' });
   }
@@ -88,4 +88,17 @@ return this.helper.isTokenExpired(this.token); }
   //     }
   //   });
   // }
+  registerUser(user :User){
+    return this.http.post<User>(this.apiURL+'/register', user, 
+    {observe:'response'});
+    }
+    setRegistredUser(user : User){
+      this.regitredUser=user;
+      }
+      getRegistredUser(){
+        return this.regitredUser;
+        }
+        validateEmail(code : string){
+          return this.http.get<User>(this.apiURL+'/verifyEmail/'+code);
+          }
 }

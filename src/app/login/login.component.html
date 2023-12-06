@@ -2,7 +2,7 @@
     <div class="row justify-content-md-center">
     <div class="col-md-4">
         <div class="alert alert-danger" *ngIf="err==1">
-        <strong>login ou mot de passe erronés..</strong>
+        <strong>{{message}}</strong>
         </div>
     <form >
     <div class="form-group">
@@ -21,6 +21,8 @@
     class="btn btn-success">Connexion</button>
     </div>
     </form>
+    <p>Vous n'avez pas un compte? <a routerLink="/register" style="color: rgb(240, 53, 6); text-align: center; display: block; margin: auto;">S'inscrire</a></p>
+
     </div>
     </div>
     </div>
